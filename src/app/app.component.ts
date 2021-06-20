@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'prueba-frontend';
+  PaginaActiva: number = 1;
+
+  public setPaginaActiva(arg: number) {
+    this.PaginaActiva = arg;
+  }
+
+  comprobarPaginaActiva(arg: number): boolean {
+    return this.PaginaActiva == arg;
+  }
 }
