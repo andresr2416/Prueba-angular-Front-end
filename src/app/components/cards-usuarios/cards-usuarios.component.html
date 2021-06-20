@@ -1,0 +1,24 @@
+<div class="main-wrapper d-flex justify-content-center align-items-center ">
+
+    <div *ngFor="let item of items.data">
+
+        <mat-card class="example-card mx-2">
+            <mat-card-header>
+                <img mat-card-image  class="example-header-image mat-card-avatar" src="{{item.avatar}}">
+                <mat-card-title>{{item.first_name}}</mat-card-title>
+                <mat-card-subtitle>{{item.last_name}}</mat-card-subtitle>
+            </mat-card-header>
+           
+            <mat-card-content class="text-center">
+                {{item.email}}
+            </mat-card-content>
+            <mat-card-actions>
+                <div class="d-flex justify-content-center align-items-center">
+                    <button mat-icon-button color="accent"><mat-icon>search</mat-icon></button>
+                    <button mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+                    <button mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
