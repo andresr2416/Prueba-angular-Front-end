@@ -17,8 +17,8 @@ export class MensajeriaService {
     }));
   }
 
-  MensajeOk(mensaje: string): void {
-    Swal.fire(this.DesactivarAltoAutomatico({
+  MensajeOk(mensaje: string): Promise<any> {
+    return Swal.fire(this.DesactivarAltoAutomatico({
       icon: 'success',
       title: 'Proceso finalizado de manera exitosa',
       text: mensaje,

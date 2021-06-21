@@ -1,24 +1,31 @@
 <div class="main-wrapper d-flex justify-content-center align-items-center ">
-
-    <div *ngFor="let item of Usuarios.data">
+    <div *ngFor="let usuario of Usuarios">
 
         <mat-card class="example-card mx-2">
             <mat-card-header>
-                <img mat-card-image  class="example-header-image mat-card-avatar" src="{{item.avatar}}">
-                <mat-card-title>{{item.first_name}}</mat-card-title>
-                <mat-card-subtitle>{{item.last_name}}</mat-card-subtitle>
+                <img mat-card-image class="example-header-image mat-card-avatar" src="{{usuario.avatar}}"
+                    onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png'">
+                <mat-card-title>{{usuario.first_name}}</mat-card-title>
+                <mat-card-subtitle>{{usuario.last_name}}</mat-card-subtitle>
             </mat-card-header>
-           
+
             <mat-card-content class="text-center">
-                {{item.email}}
+                {{usuario.email}}
             </mat-card-content>
             <mat-card-actions>
                 <div class="d-flex justify-content-center align-items-center">
-                    <button mat-icon-button color="accent" (click)="VisualizarUsuario(item.id)"><mat-icon>search</mat-icon></button>
-                    <button mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
-                    <button mat-icon-button color="warn" (click)="BorrarUsuario(item.id)"><mat-icon>delete</mat-icon></button>
+                    <button mat-icon-button color="accent" (click)="VisualizarUsuario(usuario.id)">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" (click)="EditarUsuario(usuario.id)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="BorrarUsuario(usuario.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
                 </div>
             </mat-card-actions>
         </mat-card>
+
     </div>
 </div>

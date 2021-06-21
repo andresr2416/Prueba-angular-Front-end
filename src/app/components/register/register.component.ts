@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     Registrar() {
 
         if (this.Form.valid) {
-            this.AppComponent.setStatus("indeterminate");
+            this.AppComponent.ActivarBarraCarga()
             this.ContinuarProcesoRegistro();
         } else {
             this.MensajeriaService.MensajeError("El email o la contraseña son incorrectas. No se puede continuar.")
@@ -48,14 +48,14 @@ export class RegisterComponent implements OnInit {
         arg.email = this.Form.value.Email;
         arg.password = this.Form.value.Password;
 
-        this.RegisterService.SolicitarRegistroApi(arg).then(response => {
+        this.RegisterService.SolicitarRegistroApi(arg).then(() => {
             this.MensajeriaService.MensajeOk("Registro Exitoso");
-            this.AppComponent.setStatus("determinate");
+            this.AppComponent.DesactivarBarraCarga()
         }).catch(err => {
             if (err.status == 400)
                 this.MensajeriaService.MensajeError("Hubo un problema al crear el usuario.", "solo puede ingresar con 'eve.holt@reqres.in'");
 
-            this.AppComponent.setStatus("determinate");
+            this.AppComponent.DesactivarBarraCarga()
         });
     }
 

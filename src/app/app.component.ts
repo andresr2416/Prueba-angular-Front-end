@@ -21,8 +21,12 @@ export class AppComponent {
     this.PaginaActiva = arg;
   }
 
-  public setStatus(arg: string) {
-    this.status = arg;
+  public ActivarBarraCarga(){
+    this.status = "indeterminate";
+  }
+  
+  public DesactivarBarraCarga(){
+    this.status = "determinate";
   }
 
   comprobarPaginaActiva(arg: number): boolean {
