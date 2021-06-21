@@ -68,6 +68,7 @@ export class CardsUsuariosComponent implements OnInit {
 
   BorrarUsuarioLista(arg: number) {
     this.CardsUsuariosService.ListaUsuarios.data = this.CardsUsuariosService.ListaUsuarios.data.filter(x => !(x.id == arg));
+    this.Usuarios = this.CardsUsuariosService.ListaUsuarios.data;
   }
 
   EditarUsuario(arg: number) {

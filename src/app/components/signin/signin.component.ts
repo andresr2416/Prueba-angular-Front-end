@@ -48,7 +48,7 @@ export class SigninComponent implements OnInit {
     arg.password = this.Form.value.Password;
 
     this.SigninService.SolicitarLoginApi(arg).then(() => {
-      this.MensajeriaService.MensajeOk("Registro Exitoso");
+      this.MensajeriaService.MensajeOk("Iniciaste Sesion");
       this.AppComponent.DesactivarBarraCarga()
 
     }).catch(err => {
