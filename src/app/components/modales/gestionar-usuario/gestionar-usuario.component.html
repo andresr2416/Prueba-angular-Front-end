@@ -1,0 +1,44 @@
+<mat-card class="p-5">
+    <mat-card-header class="w-100">
+        <mat-card-title>{{Escenario}} Usuario</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" [formGroup]='Form' (ngSubmit)="Login()">
+        <mat-card-content>
+            <mat-form-field class="w-100">
+                <input type="email" matInput placeholder="Correo" formControlName="Email">
+                <mat-error *ngIf="Correo.errors?.required && (Correo.dirty || Correo.touched)">
+                    El correo es requerido.
+                </mat-error>
+                <mat-error *ngIf="Correo.errors?.email && (Correo.dirty || Correo.touched)">
+                    El correo no tiene una estructura valida.
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field class="w-100">
+                <input type="text" matInput placeholder="Nombre" formControlName="Nombre">
+                <mat-error *ngIf="Nombre.errors?.required && (Nombre.dirty || Nombre.touched)">
+                    El nombre del usuario es requerido.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-100">
+                <input type="text" matInput placeholder="Apellido" formControlName="Apellido">
+                <mat-error *ngIf="Apellido.errors?.required && (Apellido.dirty || Apellido.touched)">
+                    El apellido del usuario es requerido.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-100">
+                <input type="url" matInput placeholder="Imagen de perfil" formControlName="Avatar">
+                <mat-error *ngIf="Avatar.errors?.required && (Avatar.dirty || Avatar.touched)">
+                    La imagen es requerida.
+                </mat-error>
+            </mat-form-field>
+
+        </mat-card-content>
+        <button type="submit" mat-stroked-button color="accent" class="btn-block">{{Escenario}} Usuario</button>
+    </form>
+
+</mat-card>

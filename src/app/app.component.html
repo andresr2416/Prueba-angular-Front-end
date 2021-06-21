@@ -1,11 +1,17 @@
 <mat-toolbar color="primary" class="app-header">
   <div><a href="#" target="_blank" class="positronx">Supermercado FrontEnd</a></div>
   <span class="nav-tool-items">
+    <a *ngIf="comprobarPaginaActiva(3)" mat-button [ngClass]="{'mat-raised-button': comprobarPaginaActiva(0)}"
+      (click)="Ejecutar(fn)" routerLinkActive="active">Crear Usuario</a>
     <a mat-button [ngClass]="{'mat-raised-button': comprobarPaginaActiva(1)}" routerLink="signin"
       routerLinkActive="active">Iniciar Sesion</a>
     <a mat-button [ngClass]="{'mat-raised-button': comprobarPaginaActiva(2)}" routerLink="register"
       routerLinkActive="active">Registro</a>
+    <a mat-button [ngClass]="{'mat-raised-button': comprobarPaginaActiva(3)}" routerLink="cardUsu"
+      routerLinkActive="active">Usuarios</a>
   </span>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
+
+<mat-progress-bar mode="{{status}}" class="app-footer"></mat-progress-bar>

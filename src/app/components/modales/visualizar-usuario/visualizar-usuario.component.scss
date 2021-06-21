@@ -1,0 +1,21 @@
+.example-header-image {
+    width: 10rem;
+    height: 10rem;
+    
+  }
+
+  .centraritems {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  mat-card {
+      height: 100% !important;
+      display: flex !important;  
+      justify-content: center!important;
+      align-items: center!important;
+      flex-direction: column!important;
+  }
+

@@ -14,7 +14,7 @@ import { AppComponent } from 'src/app/app.component';
 export class RegisterComponent implements OnInit {
     Form: FormGroup;
 
-    constructor(private FormBuilder: FormBuilder, private RegisterService: RegisterService, private MensajesService: MensajeriaService, private AppComponent: AppComponent) {
+    constructor(private FormBuilder: FormBuilder, private RegisterService: RegisterService, private MensajeriaService: MensajeriaService, private AppComponent: AppComponent) {
         AppComponent.setPaginaActiva(2);
     }
 
@@ -36,22 +36,26 @@ export class RegisterComponent implements OnInit {
     Registrar() {
 
         if (this.Form.valid) {
+            this.AppComponent.setStatus("indeterminate");
             this.ContinuarProcesoRegistro();
         } else {
-            this.MensajesService.MensajeError("El email o la contraseña son incorrectas. No se puede continuar.")
+            this.MensajeriaService.MensajeError("El email o la contraseña son incorrectas. No se puede continuar.")
         }
     }
 
     ContinuarProcesoRegistro(): void {
         let arg: Usuario = new Usuario();
-        arg.email = "eve.holt@reqres.in";
-        arg.password = "pistol";
+        arg.email = this.Form.value.Email;
+        arg.password = this.Form.value.Password;
 
         this.RegisterService.SolicitarRegistroApi(arg).then(response => {
-            console.log(response);
-            this.MensajesService.MensajeOk("Registro Exitoso");
-        }).catch(() => {
-            this.MensajesService.MensajeError("Hubo un problema al solicitar la funcionalidad. No se puede continuar.")
+            this.MensajeriaService.MensajeOk("Registro Exitoso");
+            this.AppComponent.setStatus("determinate");
+        }).catch(err => {
+            if (err.status == 400)
+                this.MensajeriaService.MensajeError("Hubo un problema al crear el usuario.", "solo puede ingresar con 'eve.holt@reqres.in'");
+
+            this.AppComponent.setStatus("determinate");
         });
     }
 

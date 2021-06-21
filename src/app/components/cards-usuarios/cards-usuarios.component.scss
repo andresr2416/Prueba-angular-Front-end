@@ -7,3 +7,11 @@
     height: 5rem;
     
   }
+
+  mat-card {
+    height: 100% !important;
+    display: flex !important;  
+    justify-content: center!important;
+    align-items: center!important;
+    flex-direction: column!important;
+  }

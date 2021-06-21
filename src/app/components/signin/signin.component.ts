@@ -34,6 +34,7 @@ export class SigninComponent implements OnInit {
   Login() {
 
     if (this.Form.valid) {
+      this.AppComponent.setStatus("indeterminate");
       this.ContinuarSignIn();
     } else {
       this.MensajeriaService.MensajeError("El email o la contraseña son incorrectas. No se puede continuar.")
@@ -46,11 +47,14 @@ export class SigninComponent implements OnInit {
     arg.password = this.Form.value.Password;
 
     this.SigninService.SolicitarLoginApi(arg).then(response => {
-      console.log(response);
       this.MensajeriaService.MensajeOk("Registro Exitoso");
+      this.AppComponent.setStatus("determinate");
+
     }).catch(err => {
       if (err.status == 400)
         this.MensajeriaService.MensajeError("No existe el usuario. No se puede continuar.", "solo puede ingresar con 'eve.holt@reqres.in'")
+
+      this.AppComponent.setStatus("determinate");
     });
   }
 }

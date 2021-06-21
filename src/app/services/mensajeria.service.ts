@@ -26,6 +26,18 @@ export class MensajeriaService {
     }));
   }
 
+  MensajeConfirmar(mensaje: string): Promise<any> {
+    return Swal.fire(this.DesactivarAltoAutomatico({
+      title: mensaje,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
+    }));
+  }
+
   DesactivarAltoAutomatico(arg: any) {
     return { heightAuto: false, ...arg };
   }
