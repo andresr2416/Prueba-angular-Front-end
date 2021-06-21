@@ -3,18 +3,25 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --prod"
+  },
+  "engines": {
+    "node": "14.15.5",
+    "npm": "6.14.11"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.2.0",
     "@angular/cdk": "^11.2.13",
+    "@angular/cli": "~11.2.0",
     "@angular/common": "~11.2.0",
     "@angular/compiler": "~11.2.0",
+    "@angular/compiler-cli": "~11.2.0",
     "@angular/core": "~11.2.0",
     "@angular/flex-layout": "^12.0.0-beta.34",
     "@angular/forms": "~11.2.0",
@@ -23,10 +30,13 @@
     "@angular/platform-browser-dynamic": "~11.2.0",
     "@angular/router": "~11.2.0",
     "bootstrap": "^4.6.0",
+    "express": "^4.17.1",
     "jquery": "^3.6.0",
+    "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "sweetalert2": "^11.0.17",
     "tslib": "^2.0.0",
+    "typescript": "~4.1.2",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
@@ -36,6 +46,7 @@
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.1.0",
